@@ -23,5 +23,5 @@ def step():
 import time
 while True:
     display()
-    time.sleep(1/60.0)
+    time.sleep(1/30.0)
     step()
