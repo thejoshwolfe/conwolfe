@@ -6,7 +6,7 @@ grid = [[random.randint(0, 1) for _ in range(width)] for _ in range(height)]
 
 def display():
     lines = ["".join(" #"[c] for c in row) for row in grid]
-    print("\n".join(lines))
+    print("\x1b[%iA" % height + "\n".join(lines))
 
 def next(x, y):
     offsets = (-1, 0, 1)
@@ -21,6 +21,7 @@ def step():
     grid = [[next(x, y) for x in range(width)] for y in range(height)]
 
 import time
+print("\n" * (height - 1))
 while True:
     display()
     time.sleep(1/30.0)
